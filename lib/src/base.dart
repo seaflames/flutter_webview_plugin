@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:ui';
+import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -277,6 +278,9 @@ class FlutterWebviewPlugin {
     await evalJavascript('document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });');
     return await _channel.invokeMethod('cleanCookies');
   }
+
+  // Takes screenshot of the current webview
+  Future<Uint8List> takeScreenshot() async => await _channel.invokeMethod('takeScreenshot');
 
   // Stops current loading process
   Future<Null> stopLoading() async =>
