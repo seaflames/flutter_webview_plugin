@@ -28,6 +28,7 @@ import android.graphics.Canvas;
 import android.database.Cursor;
 import android.provider.OpenableColumns;
 
+import java.io.ByteArrayOutputStream;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
